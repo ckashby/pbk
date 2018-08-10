@@ -2,9 +2,10 @@
 <p>Welcome to our app.</p>
 
 <% if user_signed_in? %>
-Signed in as <%= current_user.email %>
-<% end %>
-
+Signed in as <%= current_user.email %> |
+<%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+<% else %>
 <hr>
 <%= link_to "Sign Up", new_user_registration_path %> |
 <%= link_to "Sign In", new_user_session_path %>
+<% end %>
